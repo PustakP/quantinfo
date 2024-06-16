@@ -3,6 +3,7 @@
 import { remark } from 'remark';
 import html from 'remark-html';
 import { useEffect, useState } from 'react';
+import Image from "next/image"
 // import './markdown.css'; // Import the CSS file
 
 async function fetchAndConvertMarkdown(apiUrl: string) {
@@ -26,13 +27,37 @@ interface MarkdownReportProps {
 }
 
 export default function MarkdownReport({ apiUrl }: MarkdownReportProps) {
+  const [loading, setLoading] = useState(true);
+  const [data, setData] = useState(null);
   const [htmlContent, setHtmlContent] = useState('');
 
   useEffect(() => {
-    fetchAndConvertMarkdown(apiUrl).then(setHtmlContent);
+    console.log('Fetching markdown content...');
+    setLoading(true);
+    fetchAndConvertMarkdown(apiUrl)
+      .then(htmlContent => {
+        setHtmlContent(htmlContent);
+        setLoading(false);
+      })
+      .catch(() => setLoading(false));
   }, [apiUrl]);
 
+  if (loading) {
+    return (
+        <>
+      <div className="flex justify-center items-center pt-4">
+        <Image src="/book.gif" alt="Loading..." width={75} height={75} />
+        
+      </div>
+      <p className="text-center text-2xl animate-pulse pt-3">Loading...</p>
+      </>
+    );
+  }
+
   return (
-    <div dangerouslySetInnerHTML={{ __html: htmlContent }} />
+    <div>
+      {/* Render the markdown content here */}
+      <div dangerouslySetInnerHTML={{ __html: htmlContent }} />
+    </div>
   );
 }
