@@ -4,7 +4,8 @@ import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card"
 import MarkdownReport from "@/components/apitext"
-import CircularProgress from '@mui/material/CircularProgress';
+import Image from "next/image"
+// import CircularProgress from '@mui/material/CircularProgress';
 
 export default function Component() {
   const [selectedTimeframe, setSelectedTimeframe] = useState("day")
@@ -15,7 +16,7 @@ export default function Component() {
     // Simulate API call
     setTimeout(() => {
       setLoading(false)
-    }, 1000) // Replace with actual API call
+    }, 9000) // Replace with actual API call
   }, [selectedTimeframe])
 
   return (
@@ -54,7 +55,14 @@ export default function Component() {
             </CardHeader>
             <CardContent>
               {loading ? (
-                <CircularProgress /> // Render the CircularProgress while loading
+                // <CircularProgress /> // Render the CircularProgress while loading
+                <>
+                <div className="flex justify-center items-center pt-4">
+                  <Image className="" src="/book.gif" alt="Loading..." width={75} height={75} />
+                  
+                </div>
+                <p className="text-center text-2xl animate-pulse pt-3">Loading...</p>
+                </>
               ) : (
                 <MarkdownReport apiUrl={`http://127.0.0.1:5000/quantum_news_report/${selectedTimeframe}`} />
               )}
