@@ -1,0 +1,14 @@
+/* styles/markdown.css */
+.markdown h1 {
+    @apply text-4xl font-bold;
+  }
+  
+  .markdown h2 {
+    @apply text-3xl font-bold;
+  }
+  
+  .markdown p {
+    @apply text-base;
+  }
+
+  
