@@ -46,7 +46,7 @@ export default function MarkdownReport({ apiUrl }: MarkdownReportProps) {
     return (
         <>
       <div className="flex justify-center items-center pt-4">
-        <Image src="/book.gif" alt="Loading..." width={75} height={75} />
+        <Image src="https://i.ibb.co/WcMMVrK/Book.gif" alt="Loading..." width={75} height={75} />
         
       </div>
       <p className="text-center text-2xl animate-pulse pt-3">Loading...</p>
@@ -57,7 +57,7 @@ export default function MarkdownReport({ apiUrl }: MarkdownReportProps) {
   return (
     <div>
       {/* Render the markdown content here */}
-      <div dangerouslySetInnerHTML={{ __html: htmlContent }} />
+      <div className = '' dangerouslySetInnerHTML={{ __html: htmlContent }} />
     </div>
   );
 }

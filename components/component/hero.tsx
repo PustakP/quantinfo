@@ -37,7 +37,7 @@ export default function Component() {
             Last Month
           </Button>
         </div>
-        <div className="grid gap-4">
+        <div className="grid gap-4 pb-10">
           <Card>
             <CardHeader>
               <CardTitle>News for the {selectedTimeframe}</CardTitle>

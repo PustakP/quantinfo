@@ -1,4 +1,5 @@
 import * as React from "react"
+import { Separator } from "./separator"
 
 import { cn } from "@/lib/utils"
 
@@ -33,6 +34,7 @@ const CardTitle = React.forwardRef<
   HTMLParagraphElement,
   React.HTMLAttributes<HTMLHeadingElement>
 >(({ className, ...props }, ref) => (
+  <>
   <h3
     ref={ref}
     className={cn(
@@ -41,6 +43,8 @@ const CardTitle = React.forwardRef<
     )}
     {...props}
   />
+  <Separator />
+  </>
 ))
 CardTitle.displayName = "CardTitle"
 
