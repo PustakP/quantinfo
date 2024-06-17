@@ -43,7 +43,7 @@ export default function Component() {
               <CardTitle>News for the {selectedTimeframe}</CardTitle>
             </CardHeader>
             <CardContent>
-              <MarkdownReport apiUrl={`http://localhost:5000/quantum_news_report?report_type=research_report&time_frame=${selectedTimeframe}`} />
+              <MarkdownReport apiUrl={`https://jubilant-parakeet.onrender.com/quantum_news_report?report_type=research_report&time_frame=${selectedTimeframe}`} />
             </CardContent>
             <CardFooter>
             </CardFooter>
